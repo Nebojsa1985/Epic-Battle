@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+.gamefield {
+    display: flex;
+    align-items: center;
+    justify-content: center;       
+    min-height: 95vh;   
+    background-color: rgb(229, 209, 183); 
+    height: 95vh; 
+    width: 100%;       
+}
+button,.wizzard,.swordman,.spider,.dragon {    
+    cursor: pointer;
+}
+button:active {
+    transform: translate(2px, 2px);
+}
+.menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.atack-button{
+    width: 200px;
+    font-weight: bolder;
+}
+.character {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+}
+.wizzard > .img {
+    background-image: url("img/wizzard.png"); 
+    width: 240px; 
+    height: 240px;
+    background-size: contain;
+}
+
+.swordman > .img {
+    background-image: url("img/swordman.png"); 
+    width: 240px; 
+    height: 240px;
+    background-size: contain;
+}
+
+.spider > .img {
+    background-image: url("img/spider.png"); 
+    width: 240px; 
+    height: 240px;
+    background-size: contain;
+}
+
+.dragon > .img {
+    background-image: url("img/dragon.png"); 
+    width: 240px; 
+    height: 240px;
+    background-size: contain;
+}
+
+.hearts {
+    color: red;
+    font-weight: bolder;
+    border-radius: 4px;
+    border: 2px solid red;
+    background-color: aliceblue;
+    padding: 0 14px 0 14px;
+
+}
+
+.sword {
+    background: url("img/sword.png") no-repeat center center; ; 
+    background-size: cover;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+.spear {
+    background: url("img/spear.png") no-repeat center center; ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+.axe {
+    background: url("img/axe.png") no-repeat center center; ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+.fire{
+    background: url("img/fire.png") no-repeat center center; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    
+}
+.ice {
+    background: url("img/ice.png") no-repeat center center; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+.water {
+    background: url("img/water.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.heroWeapons {
+    padding: 25px;
+}
+
+
+
+
+
+.animstyle {
+    position: fixed;
+    top: -1vh;
+    font-size: 5rem;
+    transform: translateY(0);
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to{
+        transform: translateY(105vh);
+    }
+}
