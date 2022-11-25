@@ -1,17 +1,19 @@
 class Hero {    
-    constructor (name, health, weapon) {
+    constructor (name, health, orange, blue, weapon) {
     this.name = name
     this.health = health
+    this.orange = orange
+    this.blue = blue
     this.weapon = []
 }
 }
 
 const gamefield =  document.querySelector('.gamefield')
-let wizzardHero = new Hero('wizzard', 120, '')
-let swordmanHero = new Hero('swordman', 150, '')
+let wizzardHero = new Hero('wizzard', 120, 150, 250, '')
+let swordmanHero = new Hero('swordman', 150, 400, 550, '')
 
-let spiderHero = new Hero('spider', 100, '')
-let dragonHero = new Hero('dragon', 200, '')
+let spiderHero = new Hero('spider', 100)
+let dragonHero = new Hero('dragon', 200)
 
 const team = document.querySelectorAll('.team > div')
 let menuSelHero = document.querySelector('.menu-sel-hero')
@@ -23,19 +25,27 @@ let menuSelEnemy = document.querySelector('.menu-sel-enemy')
 let menuSelWeapon = document.querySelector('.menu-sel-weapon')
 
 const wizzard = document.querySelector('.wizzard')
-let wizzardHealth = document.querySelector('.wizzard > .hearts')
+let wizzardHealth = document.querySelector('.wizzard > .redshield')
 wizzardHealth.innerHTML = wizzardHero.health
+let wizzardOrange = document.querySelector('.wizzard > .orangeshield')
+wizzardOrange.innerHTML = wizzardHero.orange
+let wizzardBlue = document.querySelector('.wizzard > .blueshield')
+wizzardBlue.innerHTML = wizzardHero.blue
 
 const swordman = document.querySelector('.swordman')
-let swordmanHealth = document.querySelector('.swordman > .hearts')
+let swordmanHealth = document.querySelector('.swordman > .redshield')
 swordmanHealth.innerHTML = swordmanHero.health
+let swordmanOrange = document.querySelector('.swordman > .orangeshield')
+swordmanOrange.innerHTML = swordmanHero.orange
+let swordmanBlue = document.querySelector('.swordman > .blueshield')
+swordmanBlue.innerHTML = swordmanHero.blue
 
 const dragon = document.querySelector('.dragon')
-let dragonHealth = document.querySelector('.dragon > .hearts')
+let dragonHealth = document.querySelector('.dragon > .redshield')
 dragonHealth.innerHTML = dragonHero.health
 
 const spider = document.querySelector('.spider')
-let spiderHealth = document.querySelector('.spider > .hearts')
+let spiderHealth = document.querySelector('.spider > .redshield')
 spiderHealth.innerHTML = spiderHero.health
 
 const sword = document.querySelector('.sword')
@@ -59,15 +69,20 @@ let selectedEnemyDiv
 //    
 function actionHero(heroDiv, hero) {  
 
-    return (e) => {    
-    for (let i = 0; i < team.length; i++) {
-        team[i].style.opacity = 0.1        
-    }
-    heroDiv.style.opacity = 1 
-    selectedHero = hero
-    selectedHeroDiv = heroDiv
-    menuSelHero.innerText = hero.name
-    }
+    return (e) => { 
+
+              
+        for (let i = 0; i < team.length; i++) {
+            team[i].style.opacity = 0.1        
+        }
+
+        heroDiv.style.opacity = 1 
+        selectedHero = hero
+        selectedHeroDiv = heroDiv
+        menuSelHero.innerText = hero.name
+        }
+
+
 }
 
 function actionEnemy(enemyDiv, enemy) {  
@@ -106,11 +121,17 @@ function weaponAction(weapon) {
         weaponSpan.classList.add(weapon, 'heroWeapons')
         //weaponSpan.innerText = 'w'
         weaponSpan.addEventListener('click', selectedWeaponAction)
+
+     
         function selectedWeaponAction() {
+            console.log(selectedHero.weapon);                
             selectedWeapon = weapon
-            menuSelWeapon.innerText = weapon
+            menuSelWeapon.innerText = weapon  
+   
+     
         }
         selectedHeroDiv.appendChild(weaponSpan)
+
      }
     }
    }
@@ -122,22 +143,28 @@ function weaponAction(weapon) {
 atackBtn.addEventListener('click', atackBtnAction)
 
 function atackBtnAction() {
-    if(selectedWeapon && selectedEnemy && selectedHero) {
-        
-        selectedEnemy.health -= 20
-        selectedEnemyDiv.firstChild.innerHTML = selectedEnemy.health
-   
-        setAnimation(createMagic, "../sound/magic.mp3", "#80BDE3")
-        atackBtn.style.display = 'none'
-        setTimeout(() => {
-            setAnimation(createWeb, "../sound/spider.mp3", "gray")
-            enemyAtackAction()   
-            //atackBtn.style.display = 'block'   
-            }, "3500")
 
+    if(!selectedHero.weapon.includes(selectedWeapon)){
+        alert('You must select weapon from selected hero stash')
     } else {
-        alert('You must choose hero, enemy and weapon to atack')
+        if(selectedWeapon && selectedEnemy && selectedHero) {
+        
+            selectedEnemy.health -= 20
+            selectedEnemyDiv.firstChild.innerHTML = selectedEnemy.health
+       
+            setAnimation(createMagic, "../sound/magic.mp3", "#80BDE3")
+            atackBtn.style.display = 'none'
+            setTimeout(() => {
+                setAnimation(createWeb, "../sound/spider.mp3", "gray")
+                enemyAtackAction()   
+                //atackBtn.style.display = 'block'   
+                }, "3500")
+    
+        } else {
+            alert('You must choose hero, enemy and weapon to atack')
+        }
     }
+
 }
 
 //enemy atack
@@ -171,10 +198,8 @@ function enemyAtackAction() {
         selectedEnemy = null
         selectedEnemyDiv = null
 
-
-        //reset - ubaci sve u jednu funkciju
-        resetOpacity("1500")
-        ////////////
+        resetOpacity("5500")
+      
     } else {
         alert('You must choose hero, enemy and weapon to atack')
     }

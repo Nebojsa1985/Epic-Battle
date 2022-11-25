@@ -64,14 +64,31 @@ button:active {
     background-size: contain;
 }
 
-.hearts {
-    color: red;
+.redshield {
+    color: aliceblue;
     font-weight: bolder;
     border-radius: 4px;
     border: 2px solid red;
-    background-color: aliceblue;
-    padding: 0 14px 0 14px;
+    background-color:  red;
+    padding: 0 14px 0 14px; 
+}
 
+.orangeshield {
+    color: aliceblue;
+    font-weight: bolder;
+    border-radius: 4px;
+    border: 2px solid rgb(216, 119, 33);
+    background-color: rgb(231, 126, 34);
+    padding: 0 14px 0 14px;
+}
+
+.blueshield {
+    color: aliceblue;
+    font-weight: bolder;
+    border-radius: 4px;
+    border: 2px solid rgb(101, 117, 223);
+    background-color: rgb(101, 117, 223);
+    padding: 0 14px 0 14px;
 }
 
 .sword {
