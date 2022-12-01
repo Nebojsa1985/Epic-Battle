@@ -11,19 +11,23 @@
   </head>  
   <body>
     <div class="menu">      
-      <h3>Hero: <span class="menu-sel-hero">none</span></span></h3>
+      <h3>Hero: <span class="menu-sel-hero">none</span></h3>
       <h3>Weapon: <span class="menu-sel-weapon">none</span></h3>
-      <h3>Enemy: <span class="menu-sel-enemy">none</span></span></h3>    
-      <button class="atack-button">Atack</button>
-    </div>   
+      <h3>Enemy: <span class="menu-sel-enemy">none</span></h3>    
+      <button class="atack-button">⚔️  Atack  ⚔️</button>
+      <h3>Score: <span class="menu-score">0</span></h3>   
+    </div>  
+
     <div class="gamefield">
 
-    <div class="team">
-    <div id="wizzard" class="wizzard character"><span class="hearts"></span><div class="img"></div></div>
-    <div id="swordman" class="swordman character"><span class="hearts"></span><div class="img"></div></div>
-    </div>
 
-    <div>
+    <div class="team">
+
+    <div id="wizzard" class="wizzard character"><span class="redshield"></span><span class="orangeshield"></span><span class="blueshield"></span><div class="img"></div></div> 
+    <div id="swordman" class="swordman character"><span class="redshield"></span><span class="orangeshield"></span><span class="blueshield"></span><div class="img"></div></div>
+
+    </div>
+    <div class="weapons">
       <div class="sword"></div>
       <div class="spear"></div>
       <div class="axe"></div>
@@ -32,12 +36,17 @@
       <div class="water"></div>
     </div>
 
-    <div class="enemies">
-    <div id="spider" class="spider character"><span class="hearts"></span><div class="img"></div></div>
-    <div id="dragon" class="dragon character"><span class="hearts"></span><div class="img"></div></div>
+    <div class="charge">
+      <div class="heartred"></div>
+      <div class="heartorange"></div>
+      <div class="heartblue"></div>
     </div>
 
 
+    <div class="enemies">
+    <div id="spider" class="spider character"><span class="redshield"></span><div class="img"></div></div>
+    <div id="dragon" class="dragon character"><span class="redshield"></span><div class="img"></div></div>
+    </div>
 
     </div>
     <script src="script.js"></script>
