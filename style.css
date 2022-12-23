@@ -6,14 +6,41 @@
     margin: 0;
 }
 
-.gamefield {
+body {
+    background-color: rgb(169, 228, 208);
+}
+.startgame {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;       
+    min-height: 95vh;   
+    background-color: rgb(146, 213, 78); 
+    height: 100vh; 
+    width: 100%;   
+    font-size: 100px;    
+    font-weight: bold;
+}
+.gamefield {
+    display: none;
     align-items: center;
     justify-content: center;       
     min-height: 95vh;   
     background-color: rgb(229, 209, 183); 
     height: 95vh; 
     width: 100%;       
+}
+.endgame {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;       
+    min-height: 95vh;   
+    background-color: rgb(146, 213, 78); 
+    height: 100vh; 
+    width: 100%;   
+    font-size: 100px;    
+    font-weight: bold;
 }
 button,.wizzard,.swordman,.spider,.dragon {    
     cursor: pointer;
@@ -22,56 +49,128 @@ button:active {
     transform: translate(2px, 2px);
 }
 .menu {
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.playagainbtn, .startbtn {
+    padding: 1px 10px 1px 10px;
+    width: 500px;
+    font-weight: bolder;
+    font-size: 80px;
+    color: black;
+    background-color: aliceblue;
+    border-radius: 15px;
+    box-shadow: 8px 8px;
+    outline: none;
+}
+
+.weapons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 20px;
+    margin: 10px 120px 10px 120px;
+}
+
+
 .atack-button{
     width: 200px;
     font-weight: bolder;
 }
 .character {
     margin: 20px;
-    width: 300px;
-    height: 300px;
+}
+.enemy{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.wizzard, .swordman {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .wizzard > .img {
     background-image: url("img/wizzard.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
 }
 
 .swordman > .img {
     background-image: url("img/swordman.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
 }
 
 .spider > .img {
     background-image: url("img/spider.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
 }
 
 .dragon > .img {
     background-image: url("img/dragon.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
 }
 
-.hearts {
-    color: red;
+.snakecharmer > .img {
+    background-image: url("img/snakecharmer.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;    
+}
+
+.pirate > .img {
+    background-image: url("img/pirate.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;  
+}
+
+.alien > .img {
+    background-image: url("img/alien.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;    
+}
+
+
+.redshield {
+    color: aliceblue;
     font-weight: bolder;
     border-radius: 4px;
     border: 2px solid red;
-    background-color: aliceblue;
-    padding: 0 14px 0 14px;
+    background-color:  red;
+    padding: 0 14px 0 14px;     
+}
 
+.orangeshield {
+    color: aliceblue;
+    font-weight: bolder;
+    border-radius: 4px;
+    border: 2px solid orange;
+    background-color: orange;
+    padding: 0 14px 0 14px;
+}
+
+.blueshield {
+    color: aliceblue;
+    font-weight: bolder;
+    border-radius: 4px;
+    border: 2px solid rgb(101, 117, 223);
+    background-color: rgb(101, 117, 223);
+    padding: 0 14px 0 14px;
 }
 
 .sword {
@@ -129,10 +228,50 @@ button:active {
     padding: 25px;
 }
 
+.charge {
+    padding: 25px;
+}
+.heartred {
+    background: url("img/heartred.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.heartorange {
+    background: url("img/heartorange.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.heartblue {
+    background: url("img/heartblue.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
 
-
-
-
+/*animation rain*/
 .animstyle {
     position: fixed;
     top: -1vh;
@@ -144,5 +283,22 @@ button:active {
 @keyframes fall {
     to{
         transform: translateY(105vh);
+    }
+}
+
+/*animation move*/
+.movex {
+    animation: 1s linear movex;
+}
+
+@keyframes movex {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(6vw);
+    }
+    100%{
+        transform: translateX(0px);
     }
 }
