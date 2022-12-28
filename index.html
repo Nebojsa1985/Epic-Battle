@@ -10,20 +10,31 @@
     
   </head>  
   <body>
+    <div class="startgame">
+      <div>Battle game</div>
+      <img src="img/sword.png" style="width: 280px;" alt="sword">
+      <button class="startbtn">Start</button>
+      <span>© Nebojša Jovanović</span>
+  </div>
+
     <div class="menu">      
-      <h3>Hero: <span class="menu-sel-hero">none</span></span></h3>
-      <h3>Weapon: <span class="menu-sel-weapon">none</span></h3>
-      <h3>Enemy: <span class="menu-sel-enemy">none</span></span></h3>    
-      <button class="atack-button">Atack</button>
-    </div>   
+      <h3>hero : <span class="menu-sel-hero">none</span></h3>
+      <h3>weapon : <span class="menu-sel-weapon">none</span></h3>
+      <h3>enemy : <span class="menu-sel-enemy">none</span></h3>    
+      <h3>score : <span class="menu-score">0</span></h3>   
+      <button class="atack-button">⚔️  Atack  ⚔️</button>
+    </div>  
+
     <div class="gamefield">
 
-    <div class="team">
-    <div id="wizzard" class="wizzard character"><span class="hearts"></span><div class="img"></div></div>
-    <div id="swordman" class="swordman character"><span class="hearts"></span><div class="img"></div></div>
-    </div>
 
-    <div>
+    <div class="team">
+
+    <div id="wizzard" class="wizzard character hero"><span class="redshield"></span><span class="orangeshield"></span><span class="blueshield"></span><div class="img"></div></div> 
+    <div id="swordman" class="swordman character hero"><span class="redshield"></span><span class="orangeshield"></span><span class="blueshield"></span><div class="img"></div></div>
+
+    </div>
+    <div class="weapons">
       <div class="sword"></div>
       <div class="spear"></div>
       <div class="axe"></div>
@@ -32,13 +43,24 @@
       <div class="water"></div>
     </div>
 
-    <div class="enemies">
-    <div id="spider" class="spider character"><span class="hearts"></span><div class="img"></div></div>
-    <div id="dragon" class="dragon character"><span class="hearts"></span><div class="img"></div></div>
+    <div class="charge">
+
     </div>
 
 
+    <div class="enemies">
+    <div id="spider" class="spider character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="dragon" class="dragon character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="snakecharmer" class="snakecharmer character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="pirate" class="pirate character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="alien" class="alien character enemy"><span class="redshield"></span><div class="img"></div></div>
+    </div>
 
+    </div>
+    <div class="endgame">
+        <div>Game over</div>
+        <div>Score: <span class="endscore"></span> </div>
+        <button class="playagainbtn">Play again</button>
     </div>
     <script src="script.js"></script>
   </body>
