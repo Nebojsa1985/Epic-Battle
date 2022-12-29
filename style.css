@@ -6,104 +6,362 @@
     margin: 0;
 }
 
-.gamefield {
+body {
+    background-color: rgb(169, 228, 208);
+}
+.startgame {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;       
+    min-height: 100vh;   
+    background-color: rgb(146, 213, 78); 
+    height: 100vh; 
+    width: 100%;   
+    font-size: 100px;    
+    font-weight: bold;
+    overflow: hidden;
+}
+.starthead{
+    font-size: 100px;
+}
+.startcredits{
+    font-size: 20px;
+    margin-top: 40px;
+}
+.startauthorlogo {
+    cursor: pointer;
+    width: 40px;
+    margin-top: 5px;
+}
+
+.menu {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.menu > h3 {
+    width: 130px;
+}
+.btnmenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    background-color: rgb(44, 44, 44); 
+    padding: 2px;
+    height: 50px;
+}
+.gamefield {
+    display: none;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+    background-color: rgb(44, 44, 44); 
+    min-height: 95vh;
+}
+.battlefield {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    flex-direction: row;
+}
+.team {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    width: 500px;
+    place-content: center;
+}
+.charge {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    padding: 25px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    place-content: center;
+    border-radius: 4px;
+}
+.enemies {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 500px;
+    place-content: center;
+}
+.endgame {
+    display: none;
+    flex-direction: column;
     align-items: center;
     justify-content: center;       
     min-height: 95vh;   
-    background-color: rgb(229, 209, 183); 
-    height: 95vh; 
-    width: 100%;       
+    background-color: rgb(146, 213, 78); 
+    height: 100vh; 
+    width: 100%;   
+    font-size: 100px;    
+    font-weight: bold;
 }
-button,.wizzard,.swordman,.spider,.dragon {    
+button {    
     cursor: pointer;
 }
 button:active {
     transform: translate(2px, 2px);
 }
-.menu {
+
+
+.playagainbtn, .startbtn {
+    padding: 1px 10px 1px 10px;
+    width: 500px;
+    font-weight: bolder;
+    font-size: 80px;
+    color: black;
+    background-color: aliceblue;
+    border-radius: 15px;
+    box-shadow: 8px 8px;
+    outline: none;
+}
+
+.weapons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
+    border-radius: 20px;
+    margin: 10px 120px 10px 120px;
 }
+
+
 .atack-button{
     width: 200px;
     font-weight: bolder;
+    padding: 10px 14px 10px 14px;
+    animation: atackbtnbeat 2s infinite;
+    transition: .3s;
 }
+@keyframes atackbtnbeat {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .character {
     margin: 20px;
-    width: 300px;
-    height: 300px;
+    cursor: pointer;
 }
+
+.enemy{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.wizzard, .swordman {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .wizzard > .img {
     background-image: url("img/wizzard.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
 }
 
 .swordman > .img {
     background-image: url("img/swordman.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
 }
 
 .spider > .img {
     background-image: url("img/spider.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
+    animation: spiderbeats 8s infinite;
+    transition: .1s;
 }
-
+@keyframes spiderbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(50px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
 .dragon > .img {
     background-image: url("img/dragon.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
+    animation: dragonbeats 2s infinite;
+    transition: .1s;
+}
+@keyframes dragonbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateY(10px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.charmer > .img {
+    background-image: url("img/charmer.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;  
+    animation: charmerbeats 13s infinite;
+    transition: 1s;
+}
+@keyframes charmerbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.7);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-.hearts {
-    color: red;
-    font-weight: bolder;
-    border-radius: 4px;
-    border: 2px solid red;
-    background-color: aliceblue;
-    padding: 0 14px 0 14px;
+.pirate > .img {
+    background-image: url("img/pirate.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;  
+    animation: piratebeats 8s infinite;
+    transition: .1s;
+}
+@keyframes piratebeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(-10px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.alien > .img {
+    background-image: url("img/alien.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: alienbeats 13s infinite;
+    transition: .1s; 
+}
+@keyframes alienbeats {
+    0% {
+        transform: translatex(0px);     
+     }
+    30% {
+        transform: translatex(70px);        
+    }
+    60% {
+        transform: translatex(-70px);        
+    }
+    100% {
+        transform: translatex(0px);     
+    }
+}
 
+.redshield {
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: small;
+    border-radius: 4px;
+    border: 1px solid red;
+    background-color:  red;
+    width: 50px;
+    text-align: center;
+    padding: 0 2px 0 2px;
+}
+.orangeshield {
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: small;
+    border-radius: 4px;
+    border: 1px solid orange;
+    background-color: orange;
+    width: 50px;
+    text-align: center;
+    padding: 0 2px 0 2px;
+}
+
+.blueshield {
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: small;
+    border-radius: 4px;
+    border: 1px solid rgb(101, 117, 223);
+    background-color: rgb(101, 117, 223);
+    width: 50px;
+    text-align: center;
+    padding: 0 2px 0 2px;
 }
 
 .sword {
     background: url("img/sword.png") no-repeat center center; ; 
     background-size: cover;
     border-radius: 12px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
+
+}
+/*weapon rotate*/
+.weaponrotate {
+    animation: weaponrotate 2s linear infinite;
+}
+@keyframes weaponrotate {
+from {
+    rotate: 0deg;
+}
+to {
+    rotate: 360deg;
+}
 }
 .spear {
     background: url("img/spear.png") no-repeat center center; ; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
 }
 .axe {
     background: url("img/axe.png") no-repeat center center; ; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
 }
 .fire{
     background: url("img/fire.png") no-repeat center center; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
     
@@ -111,28 +369,78 @@ button:active {
 .ice {
     background: url("img/ice.png") no-repeat center center; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
 }
 .water {
     background: url("img/water.png") no-repeat center center ; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
 }
 
-.heroWeapons {
-    padding: 25px;
+.heartred {
+    background: url("img/heartred.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
+.heartorange {
+    background: url("img/heartorange.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.heartblue {
+    background: url("img/heartblue.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
 
-
-
-
+/*hearts animation on hover*/
+.heartred:hover, .heartorange:hover, .heartblue:hover   {
+    animation: heartbeats 1s infinite;
+    transition: .3s;
+}
+@keyframes heartbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/*animation rain*/
 .animstyle {
     position: fixed;
     top: -1vh;
@@ -145,4 +453,94 @@ button:active {
     to{
         transform: translateY(105vh);
     }
+}
+
+/*animation move*/
+.movex {
+    animation: 1s linear movex;
+}
+
+@keyframes movex {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        text-shadow: 50px 50px;
+        transform: translateX(6vw);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 420px) {
+    .screenresize {
+        display: none;
+    }
+    .startgame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;       
+        min-height: 100vh;   
+        background-color: rgb(146, 213, 78); 
+        height: 100vh; 
+        width: 100%;   
+        font-size: 100px;    
+        font-weight: bold;
+        overflow: hidden;
+    }
+    .starthead{
+        font-size: 50px;
+    }
+    .startcredits{
+        font-size: 10px;
+        margin-top: 30px;
+    }
+    .startauthorlogo {
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .startbtn{
+        padding: 1px 10px 1px 10px;
+        width: 300px;
+        font-weight: bolder;
+        font-size: 40px;
+    }
+    .menu {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;        
+    }
+    .menu > h3 {
+        text-align: center;
+        width: 250px;
+        font-size: 20px;        
+    }
+    .menuhomebtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .endgame {
+        height: 100vh; 
+        width: 100%;   
+        font-size: 40px;    
+        font-weight: bold;
+    }
+    .playagainbtn {
+        padding: 1px 10px 1px 10px;
+        width: 300px;
+        font-weight: bolder;
+        font-size: 30px; 
+    }
+}
+@media screen and (max-width: 920px) and (min-width: 421px) {
+
 }
