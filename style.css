@@ -6,104 +6,655 @@
     margin: 0;
 }
 
-.gamefield {
+body {
+    background-color: rgb(169, 228, 208);
+}
+.startgame {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;       
+    min-height: 100vh;   
+    background-color: rgb(146, 213, 78); 
+    height: 100vh; 
+    width: 100%;   
+    font-size: 100px;    
+    font-weight: bold;
+    overflow: hidden;
+}
+.starthead{
+    font-size: 80px;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                0px 8px 13px rgba(0,0,0,0.1),
+                0px 18px 23px rgba(0,0,0,0.1);
+}
+.startcredits{
+    font-size: 20px;
+    margin-top: 20px;
+}
+.startauthorlogo {
+    cursor: pointer;
+    width: 60px;
+    margin-top: 5px;
+}
+
+.menu {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.menu > h3 {
+    width: 140px;
+}
+.btnmenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    background-color: rgb(44, 44, 44); 
+    padding: 2px;
+    height: 50px;
+}
+.controls-navigation{
+    margin-right: 65px;
+}
+.gamefield {
+    display: none;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+    background-color: rgb(44, 44, 44); 
+    min-height: 95vh;
+    width: 100%;
+}
+.battlefield {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    flex-direction: row;
+}
+.team {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    width: 300px;
+    place-content: center;
+}
+.charge {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    padding: 25px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    place-content: center;
+    border-radius: 4px;
+}
+.enemies {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 300px;
+    place-content: center;
+}
+.endgame {
+    display: none;
+    flex-direction: column;
     align-items: center;
     justify-content: center;       
     min-height: 95vh;   
-    background-color: rgb(229, 209, 183); 
-    height: 95vh; 
-    width: 100%;       
+    background-color: rgb(146, 213, 78); 
+    height: 100vh; 
+    width: 100%;   
+    font-size: 100px;    
+    font-weight: bold;
 }
-button,.wizzard,.swordman,.spider,.dragon {    
+button {    
     cursor: pointer;
 }
 button:active {
     transform: translate(2px, 2px);
 }
-.menu {
+
+
+.playagainbtn, .startbtn {
+    padding: 1px 10px 1px 10px;
+    width: 500px;
+    font-weight: bolder;
+    font-size: 80px;
+    color: black;
+    background-color: aliceblue;
+    border-radius: 15px;
+    box-shadow: 8px 8px;
+    outline: none;
+}
+
+.weapons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
+    border-radius: 20px;
+    margin: 10px 120px 10px 120px;
 }
+
+
 .atack-button{
     width: 200px;
     font-weight: bolder;
+    padding: 10px 14px 10px 14px;
+    animation: atackbtnbeat 2s infinite;
+    transition: .3s;
 }
+@keyframes atackbtnbeat {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .character {
     margin: 20px;
-    width: 300px;
-    height: 300px;
+    cursor: pointer;
 }
+
+.enemy{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.wizzard, .swordman {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .wizzard > .img {
     background-image: url("img/wizzard.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
 }
 
 .swordman > .img {
     background-image: url("img/swordman.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
 }
 
 .spider > .img {
     background-image: url("img/spider.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
+    animation: spiderbeats 8s infinite;
+    transition: .1s;
 }
-
+@keyframes spiderbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(50px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
 .dragon > .img {
     background-image: url("img/dragon.png"); 
-    width: 240px; 
-    height: 240px;
+    width: 100px; 
+    height: 100px;
     background-size: contain;
+    animation: dragonbeats 2s infinite;
+    transition: .1s;
+}
+@keyframes dragonbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateY(10px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.charmer > .img {
+    background-image: url("img/charmer.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;  
+    animation: charmerbeats 13s infinite;
+    transition: 1s;
+}
+@keyframes charmerbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.7);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-.hearts {
-    color: red;
+.pirate > .img {
+    background-image: url("img/pirate.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;  
+    animation: piratebeats 8s infinite;
+    transition: .1s;
+}
+@keyframes piratebeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(-10px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.alien > .img {
+    background-image: url("img/alien.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: alienbeats 13s infinite;
+    transition: .1s; 
+}
+@keyframes alienbeats {
+    0% {
+        transform: translatex(0px);     
+     }
+    30% {
+        transform: translatex(70px);        
+    }
+    60% {
+        transform: translatex(-70px);        
+    }
+    100% {
+        transform: translatex(0px);     
+    }
+}
+.janissary > .img {
+    background-image: url("img/janissary.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: janissarybeats 13s infinite;
+    transition: .9s; 
+}
+@keyframes janissarybeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(-20px);        
+    }
+    100% {
+        transform: scale(1);    
+    }    
+}
+.devil > .img {
+    background-image: url("img/devil.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: devilbeats 3s infinite;
+    transition: .9s; 
+}
+@keyframes devilbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateY(10px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.builder > .img {
+    background-image: url("img/builder.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: builderbeats 3s infinite;
+    transition: .9s; 
+}
+@keyframes builderbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateY(4px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.cowboy > .img {
+    background-image: url("img/cowboy.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: cowboybeats 3s infinite;
+    transition: .9s; 
+}
+@keyframes cowboybeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateY(4px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.joker > .img {
+    background-image: url("img/joker.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: jokerbeats 6s infinite;
+    transition: .9s; 
+}
+@keyframes jokerbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.7);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.lady > .img {
+    background-image: url("img/lady.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: ladybeats 8s infinite;
+    transition: .9s; 
+}
+@keyframes ladybeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.7);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.gangster > .img {
+    background-image: url("img/gangster.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: gangsterbeats 8s infinite;
+    transition: .9s; 
+}
+@keyframes gangsterbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(-10px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.nukeman > .img {
+    background-image: url("img/nukeman.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: nukemanbeats 4s infinite;
+    transition: .9s; 
+}
+@keyframes nukemanbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.7);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.snowman > .img {
+    background-image: url("img/snowman.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: snowmanbeats 6s infinite;
+    transition: .9s; 
+}
+@keyframes snowmanbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.cook > .img {
+    background-image: url("img/cook.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: cookbeats 4s infinite;
+    transition: .9s; 
+}
+@keyframes cookbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(-15px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.kung > .img {
+    background-image: url("img/kung.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: kungbeats 5s infinite;
+    transition: .9s; 
+}
+@keyframes kungbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(-20px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.thief > .img {
+    background-image: url("img/thief.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: thiefbeats 5s infinite;
+    transition: .9s; 
+}
+@keyframes thiefbeats {
+    0% {
+        transform: scale(1);  
+     }
+    60% {
+        transform: translateX(-20px);        
+    }
+    100% {
+        transform: scale(1);    
+    }
+}
+.clown > .img {
+    background-image: url("img/clown.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: clownbeats 5s infinite;
+    transition: .9s; 
+}
+@keyframes clownbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.death > .img {
+    background-image: url("img/death.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: deathbeats 5s infinite;
+    transition: .9s; 
+}
+@keyframes deathbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.rocketman > .img {
+    background-image: url("img/rocketman.png"); 
+    width: 100px; 
+    height: 100px;
+    background-size: contain;   
+    animation: rocketmanbeats 5s infinite;
+    transition: .9s; 
+}
+@keyframes rocketmanbeats {
+    0% {
+        transform: translatex(0px);     
+     }
+    30% {
+        transform: translatex(60px);        
+    }
+    60% {
+        transform: translatex(-60px);        
+    }
+    100% {
+        transform: translatex(0px);     
+    }
+}
+.redshield {
+    color: aliceblue;
     font-weight: bolder;
+    font-size: small;
     border-radius: 4px;
-    border: 2px solid red;
-    background-color: aliceblue;
-    padding: 0 14px 0 14px;
+    border: 1px solid red;
+    background-color:  red;
+    width: 50px;
+    text-align: center;
+    padding: 0 2px 0 2px;
+}
+.orangeshield {
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: small;
+    border-radius: 4px;
+    border: 1px solid orange;
+    background-color: orange;
+    width: 50px;
+    text-align: center;
+    padding: 0 2px 0 2px;
+}
 
+.blueshield {
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: small;
+    border-radius: 4px;
+    border: 1px solid rgb(101, 117, 223);
+    background-color: rgb(101, 117, 223);
+    width: 50px;
+    text-align: center;
+    padding: 0 2px 0 2px;
 }
 
 .sword {
     background: url("img/sword.png") no-repeat center center; ; 
     background-size: cover;
     border-radius: 12px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
+}
+/*weapon rotate*/
+.weaponrotate {
+    animation: weaponrotate 2s linear infinite;
+}
+@keyframes weaponrotate {
+from {
+    rotate: 0deg;
+}
+to {
+    rotate: 360deg;
+}
 }
 .spear {
     background: url("img/spear.png") no-repeat center center; ; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
 }
 .axe {
     background: url("img/axe.png") no-repeat center center; ; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
 }
 .fire{
     background: url("img/fire.png") no-repeat center center; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
     
@@ -111,28 +662,78 @@ button:active {
 .ice {
     background: url("img/ice.png") no-repeat center center; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
 }
 .water {
     background: url("img/water.png") no-repeat center center ; 
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     cursor: pointer;
 }
 
-.heroWeapons {
-    padding: 25px;
+.heartred {
+    background: url("img/heartred.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
+.heartorange {
+    background: url("img/heartorange.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.heartblue {
+    background: url("img/heartblue.png") no-repeat center center ; 
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    color: azure;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
 
-
-
-
+/*hearts animation on hover*/
+.heartred:hover, .heartorange:hover, .heartblue:hover   {
+    animation: heartbeats 1s infinite;
+    transition: .3s;
+}
+@keyframes heartbeats {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/*animation rain*/
 .animstyle {
     position: fixed;
     top: -1vh;
@@ -144,5 +745,333 @@ button:active {
 @keyframes fall {
     to{
         transform: translateY(105vh);
+    }
+}
+
+/*animation move*/
+.movex {
+    animation: 1s linear movex;
+}
+
+@keyframes movex {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        text-shadow: 50px 50px;
+        transform: translateX(6vw);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 480px) {
+    .screenresize {
+        display: none;
+    }
+    .startgame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;       
+        min-height: 100vh;   
+        background-color: rgb(146, 213, 78); 
+        height: 100vh; 
+        width: 100%;   
+        font-size: 100px;    
+        font-weight: bold;
+        overflow: hidden;
+    }
+    .starthead{
+        font-size: 50px;
+    }
+    .startcredits{
+        font-size: 10px;
+        margin-top: 30px;
+    }
+    .startauthorlogo {
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100px;
+    }
+    .startbtn{
+        padding: 1px 10px 1px 10px;
+        width: 300px;
+        font-weight: bolder;
+        font-size: 40px;
+    }
+    .menu {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;        
+    }
+    .menu > h3 {
+        text-align: center;
+        width: 110px;
+        font-size: 13px;
+    }
+    .menuhomebtn {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        margin-left: 150px;       
+    }
+    .gamefield {
+        min-height: 83vh;
+    }
+    .endgame {
+        height: 100vh; 
+        width: 100%;   
+        font-size: 40px;    
+        font-weight: bold;
+    }
+    .controls-navigation{
+        margin-right: 5px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        padding: 2px;
+    }
+    .playagainbtn {
+        margin-top: 20px;
+        padding: 1px 10px 1px 10px;
+        width: 300px;
+        font-weight: bolder;
+        font-size: 30px; 
+    }
+    .battlefield {
+        flex-direction: column;
+    }
+    .team {
+        grid-template-columns: repeat(2, auto);
+    }
+    .enemies {
+        grid-template-columns: repeat(3, auto);
+    }
+    .charge {
+        grid-template-columns: repeat(6, auto);
+        padding: 25px;
+        width: 100%;
+        height: 90px;
+    }
+
+
+    
+    .wizzard > .img, .swordman > .img, .spider > .img, .dragon > .img,
+     .charmer > .img, .pirate > .img, .alien > .img, .janissary > .img,
+      .devil > .img, .builder > .img, .cowboy > .img, .joker > .img, .lady > .img,
+       .gangster > .img, .nukeman > .img, .snowman > .img, .cook > .img, .kung > .img, 
+        .thief > .img, .clown > .img, .death > .img, .rocketman > .img   {
+        height: 60px;
+        width: 60px;
+    }
+    .redshield, .orangeshield, .blueshield {
+        width: 40px;
+        height: 13px;
+        font-size: 8px;
+        text-align: center; 
+    }
+
+
+
+
+    .weapons {
+        gap: 2px;
+        border-radius: 20px;
+        margin: 10px 120px 10px 120px;
+    }
+    .sword {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }    
+    .spear {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .axe {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .fire{
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .ice {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .water {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .heartred, .heartorange, .heartblue {
+        height: 25px;
+        width: 25px;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .screenresize {
+        display: none;
+    }
+    .startgame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;       
+        min-height: 100vh;   
+        background-color: rgb(146, 213, 78); 
+        height: 100vh; 
+        width: 100%;   
+        font-size: 100px;    
+        font-weight: bold;
+        overflow: hidden;
+    }
+    .starthead{
+        font-size: 50px;
+    }
+    .startcredits{
+        font-size: 10px;
+        margin-top: 30px;
+    }
+    .startauthorlogo {
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100px;
+    }
+    .startbtn{
+        padding: 1px 10px 1px 10px;
+        width: 300px;
+        font-weight: bolder;
+        font-size: 40px;
+    }
+    .menu {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;        
+    }
+    .menu > h3 {
+        text-align: center;
+        width: 110px;
+        font-size: 13px;
+    }
+    .menuhomebtn {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        margin-left: 150px;       
+    }
+    .endgame {
+        height: 100vh; 
+        width: 100%;   
+        font-size: 40px;    
+        font-weight: bold;
+    }
+    .controls-navigation{
+        margin-right: 5px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        padding: 2px;
+    }
+    .goOnHomeBtn{
+        margin-right: 5px;
+    }
+    .playagainbtn {
+        margin-top: 20px;
+        padding: 1px 10px 1px 10px;
+        width: 300px;
+        font-weight: bolder;
+        font-size: 30px; 
+    }
+    .battlefield {
+        flex-direction: column;
+    }
+    .team {
+        grid-template-columns: repeat(2, auto);
+    }
+    .enemies {
+        grid-template-columns: repeat(3, auto);
+    }
+    .charge {
+        grid-template-columns: repeat(6, auto);
+        padding: 25px;
+        width: 100%;
+        height: 90px;
+    }
+
+
+    
+    .wizzard > .img, .swordman > .img, .spider > .img, .dragon > .img,
+     .charmer > .img, .pirate > .img, .alien > .img, .janissary > .img,
+      .devil > .img, .builder > .img, .cowboy > .img, .joker > .img, .lady > .img,
+       .gangster > .img, .nukeman > .img, .snowman > .img, .cook > .img, .kung > .img, 
+        .thief > .img, .clown > .img, .death > .img, .rocketman > .img   {
+        height: 60px;
+        width: 60px;
+    }
+    .redshield, .orangeshield, .blueshield {
+        width: 40px;
+        height: 13px;
+        font-size: 8px;
+        text-align: center; 
+    }
+
+
+
+
+    .weapons {
+        gap: 2px;
+        border-radius: 20px;
+        margin: 10px 120px 10px 120px;
+    }
+    .sword {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }    
+    .spear {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .axe {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .fire{
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .ice {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .water {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+    }
+    .heartred, .heartorange, .heartblue {
+        height: 25px;
+        width: 25px;
+        font-size: 10px;
     }
 }

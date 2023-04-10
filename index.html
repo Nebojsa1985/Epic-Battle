@@ -3,43 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game App</title>
+    <title>Battle Game</title>
 
  
     <link rel="stylesheet" href="style.css" />
     
   </head>  
   <body>
-    <div class="menu">      
-      <h3>Hero: <span class="menu-sel-hero">none</span></span></h3>
-      <h3>Weapon: <span class="menu-sel-weapon">none</span></h3>
-      <h3>Enemy: <span class="menu-sel-enemy">none</span></span></h3>    
-      <button class="atack-button">Atack</button>
-    </div>   
+    <div class="startgame">
+      <div>
+      <button class="screenresize" onclick="openFullscreen();">open 📺</button>
+      <button class="screenresize" onclick="closeFullscreen();">close ❎</button>
+      </div>
+      <div class="starthead">Battle game</div>
+      <img src="img/sword.png" style="width: 200px;" alt="sword">
+      <button class="startbtn">Start</button>
+      <span class="startcredits">© Nebojša Jovanović - jnesa85@gmail.com</span>
+      <img class="startauthorlogo" src="img/authorlogo.png" alt="sword"  onclick="window.location.href='https://nebojsajovanovic.netlify.app/';">
+
+  </div>
+
+    <div class="menu"> 
+      <div class="controls-navigation">   
+      <button class="goOnHomeBtn" onclick="goOnHomePage();">⏏️ Home</button>
+      <button onclick="playAudio()">▶️</button>
+      <button onclick="pauseAudio()">||</button>
+    </div>  
+      <h3>👤 <span class="menu-sel-hero">none</span></h3>
+      <h3>🔫 <span class="menu-sel-weapon">none</span></h3>
+      <h3>☠️ <span class="menu-sel-enemy">none</span></h3>    
+      <h3>💎 <span class="menu-score">0</span></h3> 
+      <div class="controls-navigation">   
+      <button class="screenresize" onclick="openFullscreen();">📺</button>
+      <button class="screenresize" onclick="closeFullscreen();">❎</button> 
+      </div>  
+    </div>  
+
     <div class="gamefield">
 
+      <div class="btnmenu">
+        <button class="atack-button">⚔️  Atack  ⚔️</button>
+      </div>
+
+
+    <div class="battlefield">
+
     <div class="team">
-    <div id="wizzard" class="wizzard character"><span class="hearts"></span><div class="img"></div></div>
-    <div id="swordman" class="swordman character"><span class="hearts"></span><div class="img"></div></div>
+
+    <div id="wizzard" class="wizzard character hero"><span class="redshield"></span><span class="orangeshield"></span><span class="blueshield"></span><div class="img"></div></div> 
+    <div id="swordman" class="swordman character hero"><span class="redshield"></span><span class="orangeshield"></span><span class="blueshield"></span><div class="img"></div></div>
+
     </div>
 
-    <div>
-      <div class="sword"></div>
-      <div class="spear"></div>
-      <div class="axe"></div>
-      <div class="fire"></div>
-      <div class="ice"></div>
-      <div class="water"></div>
+
+    <div class="charge">
     </div>
 
     <div class="enemies">
-    <div id="spider" class="spider character"><span class="hearts"></span><div class="img"></div></div>
-    <div id="dragon" class="dragon character"><span class="hearts"></span><div class="img"></div></div>
+    <div id="spider" class="spider character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="dragon" class="dragon character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="charmer" class="charmer character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="pirate" class="pirate character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="janissary" class="janissary character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="alien" class="alien character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="devil" class="devil character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="builder" class="builder character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="cowboy" class="cowboy character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="joker" class="joker character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="lady" class="lady character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="gangster" class="gangster character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="nukeman" class="nukeman character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="snowman" class="snowman character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="cook" class="cook character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="kung" class="kung character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="thief" class="thief character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="clown" class="clown character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="death" class="death character enemy"><span class="redshield"></span><div class="img"></div></div>
+    <div id="rocketman" class="rocketman character enemy"><span class="redshield"></span><div class="img"></div></div>
+    
+    </div>
+    
+  </div>
+
+  <div class="weapons">
+    <div class="sword"></div>
+    <div class="spear"></div>
+    <div class="axe"></div>
+    <div class="fire"></div>
+    <div class="ice"></div>
+    <div class="water"></div>
+  </div>
+
+
+    </div>
+    <div class="endgame">
+        <div>Game over</div>
+        <div>💎 <span class="endscore">0</span> </div>
+        <button class="playagainbtn">Play again</button>
     </div>
 
+    <audio id="myAudio">
+      <source src="sound/theme.mp3" type="audio/mpeg">
+    </audio>
 
-
-    </div>
     <script src="script.js"></script>
   </body>
 </html>
